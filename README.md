@@ -57,6 +57,21 @@ Modes are stored as numeric protocol IDs and exposed as dropdown values:
 | 3 | Rainbow |
 | 4 | Twinkle |
 
+## Install from GitHub (Custom URL)
+
+Create a **public** GitHub repository named `ioBroker.govee-aurora` and push
+this directory as its repository root. In ioBroker Admin, open the adapters
+page, click the Octocat icon (**Install adapter from own URL**), select **ANY**,
+and enter:
+
+```text
+https://github.com/<your-account>/ioBroker.govee-aurora.git
+```
+
+After installation, add an instance, enter the H6093 IPv4 address, save, and
+restart the instance. The adapter does not need to be published on npm for this
+GitHub custom-URL installation method.
+
 ## Local installation
 
 Copy the complete `iobroker` directory to the ioBroker host. The most direct
@@ -104,3 +119,7 @@ captured `te1` DIY scene.
 - Scene sends use a known working captured DIY activation frame whose internal
   activation bytes remain undocumented.
 - There is no device acknowledgement for successful UDP scene commands.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
