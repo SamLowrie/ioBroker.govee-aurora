@@ -1,0 +1,618 @@
+{
+  "common": {
+    "name": "govee-aurora",
+    "version": "0.3.0",
+    "title": "Govee Aurora",
+    "titleLang": {
+      "en": "Govee Aurora"
+    },
+    "desc": {
+      "en": "Control one Govee Aurora H6093 projector directly over UDP without cloud access or discovery"
+    },
+    "authors": [
+      "Magnus"
+    ],
+    "author": "Magnus",
+    "keywords": [
+      "govee",
+      "H6093",
+      "projector",
+      "local",
+      "UDP"
+    ],
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "icon": "govee-aurora.svg",
+    "enabled": true,
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "lighting",
+    "tier": 2,
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "assumption",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=5.0.19"
+      }
+    ]
+  },
+  "native": {
+    "ip": "",
+    "port": 4003
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": { "name": "Information" },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "name": "UDP socket ready",
+        "type": "boolean",
+        "role": "indicator.connected",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "projector",
+      "type": "channel",
+      "common": { "name": "Projector" },
+      "native": {}
+    },
+    {
+      "_id": "projector.ip",
+      "type": "state",
+      "common": {
+        "name": "Configured projector IP address",
+        "type": "string",
+        "role": "info.ip",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "global",
+      "type": "channel",
+      "common": { "name": "Global controls" },
+      "native": {}
+    },
+    {
+      "_id": "global.power",
+      "type": "state",
+      "common": {
+        "name": "Power",
+        "type": "boolean",
+        "role": "switch.power",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "global.brightness",
+      "type": "state",
+      "common": {
+        "name": "Global brightness",
+        "type": "number",
+        "role": "level.dimmer",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "def": 100
+      },
+      "native": {}
+    },
+    {
+      "_id": "global.autoPush",
+      "type": "state",
+      "common": {
+        "name": "Automatically push scene changes",
+        "type": "boolean",
+        "role": "switch.enable",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "global.predefinedScene",
+      "type": "state",
+      "common": {
+        "name": "Predefined scene",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": true,
+        "def": "1001",
+        "desc": "Selects an extracted Govee Home scene for commands.pushPredefinedScene. Changing the selection does not send it."
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene",
+      "type": "channel",
+      "common": { "name": "Scene editor" },
+      "native": {}
+    },
+    {
+      "_id": "scene.stars",
+      "type": "channel",
+      "common": { "name": "Stars" },
+      "native": {}
+    },
+    {
+      "_id": "scene.stars.enabled",
+      "type": "state",
+      "common": {
+        "name": "Stars enabled",
+        "type": "boolean",
+        "role": "switch.enable",
+        "read": true,
+        "write": true,
+        "def": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.stars.brightness",
+      "type": "state",
+      "common": {
+        "name": "Stars relative brightness",
+        "type": "number",
+        "role": "level.dimmer",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "def": 50
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.stars.blinking",
+      "type": "state",
+      "common": {
+        "name": "Star blinking",
+        "type": "boolean",
+        "role": "switch.enable",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.stars.blinkingRate",
+      "type": "state",
+      "common": {
+        "name": "Star blinking rate",
+        "type": "number",
+        "role": "level",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "def": 50
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.stars.orbit",
+      "type": "state",
+      "common": {
+        "name": "Star orbit",
+        "type": "boolean",
+        "role": "switch.enable",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.stars.orbitSpeed",
+      "type": "state",
+      "common": {
+        "name": "Star orbit speed",
+        "type": "number",
+        "role": "level",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "def": 50
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora",
+      "type": "channel",
+      "common": { "name": "Aurora" },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.general",
+      "type": "channel",
+      "common": { "name": "Aurora general" },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.general.direction",
+      "type": "state",
+      "common": {
+        "name": "Aurora flow direction",
+        "type": "number",
+        "role": "level",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 1,
+        "step": 1,
+        "states": { "0": "Down", "1": "Up" },
+        "def": 0
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.general.speed",
+      "type": "state",
+      "common": {
+        "name": "Aurora movement speed",
+        "type": "number",
+        "role": "level",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "def": 50
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.waves",
+      "type": "channel",
+      "common": { "name": "Aurora waves" },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.waves.enabled",
+      "type": "state",
+      "common": {
+        "name": "Waves enabled",
+        "type": "boolean",
+        "role": "switch.enable",
+        "read": true,
+        "write": true,
+        "def": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.waves.brightness",
+      "type": "state",
+      "common": {
+        "name": "Waves relative brightness",
+        "type": "number",
+        "role": "level.dimmer",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "def": 100
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.waves.colors",
+      "type": "state",
+      "common": {
+        "name": "Wave colors as JSON RGB array",
+        "type": "string",
+        "role": "json",
+        "read": true,
+        "write": true,
+        "def": "[[0,255,0],[0,0,255]]",
+        "desc": "One to eight RGB triples, for example [[255,228,255],[255,255,255]]"
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.waves.mode",
+      "type": "state",
+      "common": {
+        "name": "Wave mode",
+        "type": "number",
+        "role": "level",
+        "read": true,
+        "write": true,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "states": { "1": "Gradient", "2": "Breathing", "3": "Rainbow", "4": "Twinkle" },
+        "def": 1
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.waves.speed",
+      "type": "state",
+      "common": {
+        "name": "Wave speed",
+        "type": "number",
+        "role": "level",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "def": 50
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.lightFlow",
+      "type": "channel",
+      "common": { "name": "Aurora light flow" },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.lightFlow.enabled",
+      "type": "state",
+      "common": {
+        "name": "Light flow enabled",
+        "type": "boolean",
+        "role": "switch.enable",
+        "read": true,
+        "write": true,
+        "def": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.lightFlow.brightness",
+      "type": "state",
+      "common": {
+        "name": "Light-flow relative brightness",
+        "type": "number",
+        "role": "level.dimmer",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "def": 100
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.lightFlow.colors",
+      "type": "state",
+      "common": {
+        "name": "Light-flow colors as JSON RGB array",
+        "type": "string",
+        "role": "json",
+        "read": true,
+        "write": true,
+        "def": "[[255,255,255]]",
+        "desc": "One to eight RGB triples, for example [[255,228,255],[255,255,255]]"
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.lightFlow.mode",
+      "type": "state",
+      "common": {
+        "name": "Light-flow mode",
+        "type": "number",
+        "role": "level",
+        "read": true,
+        "write": true,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "states": { "1": "Gradient", "2": "Breathing", "3": "Rainbow", "4": "Twinkle" },
+        "def": 1
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.aurora.lightFlow.speed",
+      "type": "state",
+      "common": {
+        "name": "Light-flow speed",
+        "type": "number",
+        "role": "level",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "%",
+        "def": 50
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.music",
+      "type": "channel",
+      "common": { "name": "Scene music" },
+      "native": {}
+    },
+    {
+      "_id": "scene.music.id",
+      "type": "state",
+      "common": {
+        "name": "Built-in music ID",
+        "type": "number",
+        "role": "level",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "states": {
+          "0": "Off",
+          "3": "Soothing Music - Lullaby",
+          "16": "Festival - Music Box",
+          "14": "Emotion - Still",
+          "15": "Emotion - Cheerful Music",
+          "10": "Rain - Mountain Raindrops",
+          "6": "Rain - Drizzle",
+          "18": "Life - Little Train",
+          "17": "Life - Tick Tock",
+          "7": "Nature - River",
+          "8": "Nature - Beach Waves",
+          "9": "Nature - Campfire",
+          "5": "Nature - Insect Songs",
+          "13": "Nature - Wind Sounds",
+          "11": "Nature - Birdsong",
+          "4": "Nature - Wind Chimes",
+          "12": "Nature - Breeze 2",
+          "2": "Universe - Starry Night",
+          "1": "Universe - Deep Sea"
+        },
+        "desc": "Numeric device sound ID. This does not control app music playback. Use scene.music.selection for the app-ordered dropdown."
+      },
+      "native": {}
+    },
+    {
+      "_id": "scene.music.selection",
+      "type": "state",
+      "common": {
+        "name": "Built-in music selection",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": true,
+        "def": "track-00",
+        "states": {
+          "track-00": "Off",
+          "track-01": "Soothing Music - Lullaby",
+          "track-02": "Festival - Music Box",
+          "track-03": "Emotion - Still",
+          "track-04": "Emotion - Cheerful Music",
+          "track-05": "Rain - Mountain Raindrops",
+          "track-06": "Rain - Drizzle",
+          "track-07": "Life - Little Train",
+          "track-08": "Life - Tick Tock",
+          "track-09": "Nature - River",
+          "track-10": "Nature - Beach Waves",
+          "track-11": "Nature - Campfire",
+          "track-12": "Nature - Insect Songs",
+          "track-13": "Nature - Wind Sounds",
+          "track-14": "Nature - Birdsong",
+          "track-15": "Nature - Wind Chimes",
+          "track-16": "Nature - Breeze 2",
+          "track-17": "Universe - Starry Night",
+          "track-18": "Universe - Deep Sea"
+        },
+        "desc": "Ordered dropdown matching the Govee Home app. It is synchronized with scene.music.id."
+      },
+      "native": {}
+    },
+    {
+      "_id": "commands",
+      "type": "channel",
+      "common": { "name": "Commands" },
+      "native": {}
+    },
+    {
+      "_id": "commands.pushScene",
+      "type": "state",
+      "common": {
+        "name": "Push scene",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "commands.pushPredefinedScene",
+      "type": "state",
+      "common": {
+        "name": "Push predefined scene",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "commands.lastResult",
+      "type": "state",
+      "common": {
+        "name": "Last command result",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "commands.lastError",
+      "type": "state",
+      "common": {
+        "name": "Last command error",
+        "type": "string",
+        "role": "text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "commands.lastSent",
+      "type": "state",
+      "common": {
+        "name": "Last command timestamp",
+        "type": "number",
+        "role": "date",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    }
+  ]
+}

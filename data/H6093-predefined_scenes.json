@@ -1,0 +1,535 @@
+{
+  "H6093": {
+    "1001": {
+      "name": "Geist",
+      "cmd": [
+        "owABA1gCEwBGAAEBZAJTAf///2U=",
+        "owEAZAEBAR4UABgARgACAUUCR5A=",
+        "o/8B/wAAAAEBAQAAAQEBAQEUALY=",
+        "MwUEESIAAAAAAAAAAAAAAAAAAAE="
+      ]
+    },
+    "1002": {
+      "name": "Weihnachtsglocke",
+      "cmd": [
+        "owABC1gGIQBkAAIBZAFkAv8AAE0=",
+        "owH//wAAMgEeArX//725/wAUAdY=",
+        "owIBATJkABsABwACATwBZAL/AEw=",
+        "owMA//8AAAEBAQAAAQEBAQFkAMQ=",
+        "owQbAAgBAgE8AWQC/wAA//8AABI=",
+        "owUBAQEAAAEBAQEBZAAbAGQBAr4=",
+        "owYBZAFkAv//AAD/AAABAQEAAFk=",
+        "owcBAQEBAWQAGwAHAQIBMgFkAoo=",
+        "owj//wAA/wAAAQEBAAABAQEBAVQ=",
+        "owk8ABsACAACATIBZAL//wAA/yw=",
+        "o/8AAAEBAQAAAQEBAQE8AAAAAGA=",
+        "MwUEECIQAAAAAAAAAAAAAAAAABA="
+      ]
+    },
+    "1003": {
+      "name": "Zuckerstange",
+      "cmd": [
+        "owABC1gGIQBkAAIBZAFkAv8AAE0=",
+        "owH///8AMgEeArX//725/wAUASk=",
+        "owIBATJQABsABwACATwBZAL/AHg=",
+        "owMA////AAEBAQAAAQEBAQFkADs=",
+        "owQbAAgBAgE8AWQC/wAA////AO0=",
+        "owUBAQEAAAEBAQEBMgAbAGQBAug=",
+        "owYBZAFkAv8AAP///wABAQEAAKY=",
+        "owcBAQEBAV4BGwAHAQIBMgFkArE=",
+        "owj/AAD///8AAQEBAAABAQEBAas=",
+        "owlkABsACAACATIBZAL/AAD//3Q=",
+        "o///AAEBAQAAAQEBAQFkAAAAAMc=",
+        "MwUEDyIQAAAAAAAAAAAAAAAAAA8="
+      ]
+    },
+    "1004": {
+      "name": "Halloween",
+      "cmd": [
+        "owABC1gGIQBkAAIBZAFkAv8AAE0=",
+        "owGLAP8AMgEeArX//725/wAUAaI=",
+        "owIBATI8ABsABwACATwBZAL/ABQ=",
+        "owMAiwD/AAEBAQAAAQEBAQE8AOg=",
+        "owQbAAgBAgE8AWQC/wAAhgCrAD8=",
+        "owUBAQEAAAEBAQEBZAAbAGQBAr4=",
+        "owYBZAFkAosA//8AAAABAQEAAC0=",
+        "owcBAQEBAWQAGwAHAQIBMgFkAoo=",
+        "owj/AACLAP8AAQEBAAABAQEBASA=",
+        "owk8ABsACAACATIBZAL/AACLAKc=",
+        "o///AAEBAQAAAQEBAQE8AAAAAJ8=",
+        "MwUEDiIAAAAAAAAAAAAAAAAAAB4="
+      ]
+    },
+    "1005": {
+      "name": "Weihnachten",
+      "cmd": [
+        "owABC1gGIQBkAAIBZAFkAv9CAA8=",
+        "owH/fwAAMgEeArX//725/wAUAVY=",
+        "owIBATKQARsABwACATwBZAL/Qvs=",
+        "owMA/38AAAEBAQAAAQEBAQFkAEQ=",
+        "owQbAAgBAgE8AWQC/0IA/38AANA=",
+        "owUBAQEAAAEBAQEBZAAbAGQBAr4=",
+        "owYBZAFkAv9/AFb/AAABAQEAAI8=",
+        "owcBAQEBASwBGwAHAQIBMgFkAsM=",
+        "owj/fwBV/wAAAQEBAAABAQEBAYE=",
+        "owlkABsACAACATIBZAL/fwBV/6E=",
+        "o/8AAAEBAQAAAQEBAQFkAAAAADg=",
+        "MwUEDSIQAAAAAAAAAAAAAAAAAA0="
+      ]
+    },
+    "1006": {
+      "name": "Heilung",
+      "cmd": [
+        "owABA1gBIQABAAIBZAIPAf///0w=",
+        "owEBZAENA//AAP//AMP4AAFIAYQ=",
+        "o/84AFYAAAAAAAAAAAAAAAAAADI=",
+        "MwUEDCICAAAAAAAAAAAAAAAAAB4="
+      ]
+    },
+    "1007": {
+      "name": "Spirituell",
+      "cmd": [
+        "owABA1gBIQABAQIBZAEFAgDNpNE=",
+        "owEAY3sBVQEFAv///wAA/wFFAa0=",
+        "o/8PAQ8yAAAAAAAAAAAAAAAAAG8=",
+        "MwUECyIKAAAAAAAAAAAAAAAAABE="
+      ]
+    },
+    "1008": {
+      "name": "Friedlich",
+      "cmd": [
+        "owABA1gBIQABAAIBRgJGAQAA/yc=",
+        "owEBZAFaAwAAgAAy0wAALABlALc=",
+        "o/8eAR4yAAAAAAAAAAAAAAAAAG8=",
+        "MwUECiIOAAAAAAAAAAAAAAAAABQ="
+      ]
+    },
+    "1009": {
+      "name": "Entspannen",
+      "cmd": [
+        "owABA1gBHgABAAIBZAIeAf///2I=",
+        "owEBZAE8AgDH/wDXmAFIABsBWoY=",
+        "o/8AAAAAAAAAAAAAAAAAAAAAAFw=",
+        "MwUECSIMAAAAAAAAAAAAAAAAABU="
+      ]
+    },
+    "1010": {
+      "name": "Meditation",
+      "cmd": [
+        "owABA1gBHwABAAEBRgEUBYsA/8Q=",
+        "owEAy7/Tvf//sf8A2qsBDwEeAZc=",
+        "o/8eMgAAAAAAAAAAAAAAAAAAAHA=",
+        "MwUECCIKAAAAAAAAAAAAAAAAABI="
+      ]
+    },
+    "1011": {
+      "name": "Froh",
+      "cmd": [
+        "owABAlgBFgAjAAEBZARgAv//AM4=",
+        "o///fwAAAQEBAQEAAAAAAAAAAN0=",
+        "MwUEByIPAAAAAAAAAAAAAAAAABg="
+      ]
+    },
+    "1012": {
+      "name": "Romantisch",
+      "cmd": [
+        "owABA1gBIQAeAQIBZAJkAv8g/+U=",
+        "owH///8BZAFkAv+o//8h/wBkAbM=",
+        "o/8BAR4yAAAAAAAAAAAAAAAAAHA=",
+        "MwUEBiIPAAAAAAAAAAAAAAAAABk="
+      ]
+    },
+    "1013": {
+      "name": "Beruhigend",
+      "cmd": [
+        "owABA1gBHgABAAIBNwFiAf///04=",
+        "owEBZAEeArX//725/wAUATIBMoA=",
+        "o/8yAAAAAAAAAAAAAAAAAAAAAG4=",
+        "MwUEBSIAAAAAAAAAAAAAAAAAABU="
+      ]
+    },
+    "1014": {
+      "name": "Tiefsinnig",
+      "cmd": [
+        "owABAlgBHAAUAQEBXwRQBIsA/4s=",
+        "o///X/////8AAP8BZAEyADJkAAM=",
+        "MwUEBCINAAAAAAAAAAAAAAAAABk="
+      ]
+    },
+    "1015": {
+      "name": "Herzschlag",
+      "cmd": [
+        "owABBFgCHgAPAAIAZAFVAosA/6k=",
+        "owEAAP8BWgFVAf/N/wEEADcBN5o=",
+        "owIyABYADwABAWQEYAL/0///kjY=",
+        "o///AVABNwE3LAEAAAAAAAAAAN8=",
+        "MwUEAyIPAAAAAAAAAAAAAAAAABw="
+      ]
+    },
+    "1016": {
+      "name": "Mysteri\u00f6s",
+      "cmd": [
+        "owABBFgCFgAKAQEBMgRiAosA/8M=",
+        "owH/X/8AFAEBATJkABsACgECAKw=",
+        "owIBAQEAATIBZAKLAP//X/8AAd4=",
+        "o/8BAQEBMgAAAAAAAAAAAAAAAG4=",
+        "MwUEAiIAAAAAAAAAAAAAAAAAABI="
+      ]
+    },
+    "1017": {
+      "name": "Still",
+      "cmd": [
+        "owABA1gBJwABAQIBLQEFAwCP/4Y=",
+        "owEA2rAAzaQBRgIFAwCP/wDasPg=",
+        "o/8AzaQBHgEPAQ8yAAAAAAAAABg=",
+        "MwUEASIOAAAAAAAAAAAAAAAAAB8="
+      ]
+    },
+    "1018": {
+      "name": "Meteor",
+      "cmd": [
+        "owABBFgCGwAFAQIAMwFkAQAA/0k=",
+        "owEBMgFkAYsA/wFkATwAHmQAG7g=",
+        "owIAUAECAVoBZAGLAP8BMgFkAe4=",
+        "o/+LAP8BZAEeAR4yAAAAAAAAAH8=",
+        "MwUEACICAAAAAAAAAAAAAAAAABI="
+      ]
+    },
+    "1019": {
+      "name": "Erde",
+      "cmd": [
+        "owABAlgBGwAKAAIBZAFCAQD/pZc=",
+        "o/8BZAFCAQD/pQEyAQ8BDzIAACA=",
+        "MwUE/yECAAAAAAAAAAAAAAAAAO4="
+      ]
+    },
+    "1020": {
+      "name": "Milchstra\u00dfe",
+      "cmd": [
+        "owABBFgCHgABAAIBNwFiAf///0o=",
+        "owEBZAEeArX//725/wFkAWQAMqY=",
+        "owLIABYAAQABAWQBYgIgcf+iAHc=",
+        "o/++AWQAMgEyyAAAAAAAAAAAAE4=",
+        "MwUE/iECAAAAAAAAAAAAAAAAAO8="
+      ]
+    },
+    "1021": {
+      "name": "Riesiger Kosmos",
+      "cmd": [
+        "owABBFgCGwAyAAIBZAEBAgAAN4c=",
+        "owEAAP8AAQEBAAFkAAEBAWQAE08=",
+        "owIAFAABAWQBAQFkAC0BZAEBAf0=",
+        "o/8B9AEAAAAAAAAAAAAAAAAAAKg=",
+        "MwUE/SEAAAAAAAAAAAAAAAAAAO4="
+      ]
+    },
+    "1022": {
+      "name": "Interstellare Reise",
+      "cmd": [
+        "owABBFgCFgABAQEBRgEBAgAA/1E=",
+        "owEAIVsBDwEBAAEyABkAOAEBAcU=",
+        "owJSBFoDpAD/AAD//wAAAWQBAZA=",
+        "o/8AATIAAAAAAAAAAAAAAAAAAG8=",
+        "MwUE/CEAAAAAAAAAAAAAAAAAAO8="
+      ]
+    },
+    "1023": {
+      "name": "Weltraumwanderung",
+      "cmd": [
+        "owABA1gBIQABAAIBZAEBBADP16M=",
+        "owEAKHRMANEAADcAAQEBAAFjADc=",
+        "o/8BAQEAAAAAAAAAAAAAAAAAAF0=",
+        "MwUE3SEAAAAAAAAAAAAAAAAAAM4="
+      ]
+    },
+    "1024": {
+      "name": "Gro\u00dfes Universum",
+      "cmd": [
+        "owABBFgCGwABAAIBZAEeAqsA/8g=",
+        "owGwAAAAAQEBAAFGATwAAWQAGBQ=",
+        "owIAAQACAVACHgGrAAAAAQEBAEQ=",
+        "o/8BZAFeAAEyAAAAAAAAAAAAAFU=",
+        "MwUE3CEAAAAAAAAAAAAAAAAAAM8="
+      ]
+    },
+    "1025": {
+      "name": "Kosmische Wellen",
+      "cmd": [
+        "owABA1gCEwABAAEBFAEBAQAA/wM=",
+        "owEBDwEBAAEyABMAAQABATABAb0=",
+        "o/8BpAD/AWQBAQABMgAAAAAAAFA=",
+        "MwUE2yEAAAAAAAAAAAAAAAAAAMg="
+      ]
+    },
+    "1026": {
+      "name": "Interstellare Reise",
+      "cmd": [
+        "owABBFgCGAABAAIBZAIoAYsA/90=",
+        "owEAAQEBAAE/ADwBPDIAGQA4AI8=",
+        "owIBAVIEWgOkAP8AAP//AAABZJA=",
+        "o/8BAQABMgAAAAAAAAAAAAAAAG8=",
+        "MwUE2iEBAAAAAAAAAAAAAAAAAMg="
+      ]
+    },
+    "1027": {
+      "name": "Schlafen D",
+      "cmd": [
+        "owABA1gBHgABAAIBMgIBAgAA/yg=",
+        "owEtAIsBVQEBAS0AiwAyATIBMsU=",
+        "o/8AAAAAAAAAAAAAAAAAAAAAAFw=",
+        "MwUEcUgAAAAAAAAAAAAAAAAAAAs="
+      ]
+    },
+    "1028": {
+      "name": "Schlafen C",
+      "cmd": [
+        "owABA1gBIQABAAIARgEyAgAA/1I=",
+        "owEwAJoBVQEBAi0AiwA0oAAyAV8=",
+        "o/8yATIAAAAAAAAAAAAAAAAAAF0=",
+        "MwUEcEgAAAAAAAAAAAAAAAAAAAo="
+      ]
+    },
+    "1029": {
+      "name": "Schlafen B",
+      "cmd": [
+        "owABA1gBHgABAAIBMgEBAgAA/ys=",
+        "owEtAIsAMgEyAf///wAyATIBMsk=",
+        "o/8AAAAAAAAAAAAAAAAAAAAAAFw=",
+        "MwUEb0gAAAAAAAAAAAAAAAAAABU="
+      ]
+    },
+    "1030": {
+      "name": "Begleiten",
+      "cmd": [
+        "owABAlgBGwABAAIBYAFiAf///x0=",
+        "o/8BZAEeAfr/tgAUATIBMjIAALI=",
+        "MwUE2SEDAAAAAAAAAAAAAAAAAMk="
+      ]
+    },
+    "1031": {
+      "name": "D\u00e4mmerung",
+      "cmd": [
+        "owABAlgBHAABAAEBZAFQBAAA/yo=",
+        "o/8AD10Ah98AK3IBKAEBAQEAACY=",
+        "MwUE2CECAAAAAAAAAAAAAAAAAMk="
+      ]
+    },
+    "1032": {
+      "name": "Traumland",
+      "cmd": [
+        "owABAlgBHAABAAEBRgEUBAD//7M=",
+        "o/+LAP8Ay7/Tvf8BDwEeAR4yAPE=",
+        "MwUE1yEAAAAAAAAAAAAAAAAAAMQ="
+      ]
+    },
+    "1033": {
+      "name": "Schlafen",
+      "cmd": [
+        "owABAlgBFgABAAEBQQQZAgAA/08=",
+        "o/8AoP8BMgAKAQoyAAAAAAAAAAM=",
+        "MwUE1iEDAAAAAAAAAAAAAAAAAMY="
+      ]
+    },
+    "1034": {
+      "name": "Erwachen",
+      "cmd": [
+        "owABA1gBIQABAAIBZAFiAf///yI=",
+        "owEBZAEeAwD/AADeeAAAbQFSAb0=",
+        "o/8yADIyAAAAAAAAAAAAAAAAAG4=",
+        "MwUE1SEFAAAAAAAAAAAAAAAAAMM="
+      ]
+    },
+    "1035": {
+      "name": "Saisonal",
+      "cmd": [
+        "owABBlgEEwABAAEBZAFkAQD/ABU=",
+        "owEBHgEeAR7IABMAAQABAWQBZGY=",
+        "owIBAAD/AR4BHgEeyAATAAEAAZs=",
+        "owMBZAFkAf8AAAEeAR4BHsgAE5o=",
+        "owQAAQABAWQBZAH+/v4BWAEeAR8=",
+        "o/8eLAEAAAAAAAAAAAAAAAAAAG8=",
+        "MwUE1CEAAAAAAAAAAAAAAAAAAMc="
+      ]
+    },
+    "1036": {
+      "name": "Waldnebel",
+      "cmd": [
+        "owABA1gBIQABAAIBZAFiAf///yI=",
+        "owEBZAEeAwD/AADeeAAAbQFSAb0=",
+        "o/8yADIyAAAAAAAAAAAAAAAAAG4=",
+        "MwUE0yEKAAAAAAAAAAAAAAAAAMo="
+      ]
+    },
+    "1037": {
+      "name": "Mondschein",
+      "cmd": [
+        "owABA1gBHgABAQIBZAFjAf///x0=",
+        "owEBZAEFAv///wAA/wEyAAEBPM4=",
+        "o/8AAAAAAAAAAAAAAAAAAAAAAFw=",
+        "MwUE0iEAAAAAAAAAAAAAAAAAAME="
+      ]
+    },
+    "1038": {
+      "name": "Sonniger Regen",
+      "cmd": [
+        "owABAlgBGQAPAQEBMgRGAwB6/xg=",
+        "o/8AAP8A/90BZAEyAA8yAAAAAOo=",
+        "MwUE0SEGAAAAAAAAAAAAAAAAAMQ="
+      ]
+    },
+    "1039": {
+      "name": "Lagerfeuer",
+      "cmd": [
+        "owABBFgCHgAyAAIBZAFkAv8AAC8=",
+        "owH/fwAAQgEBAf///wAUAQEBMrk=",
+        "owJkABYAVQABAWQEZAL/AAD/f/8=",
+        "o/8AAAEBAQEB+gAAAAAAAAAAAKc=",
+        "MwUE0CEJAAAAAAAAAAAAAAAAAMo="
+      ]
+    },
+    "1040": {
+      "name": "Ozean",
+      "cmd": [
+        "owABBVgCIQAeAAIAQAMfAv/klxI=",
+        "owEA//8BRgI8AgDH///AAAEKAdQ=",
+        "owJGAUYyACEAMgACAVUBRgIAAJI=",
+        "owP/AP//AUYBPAIAk/8AGv8BNZo=",
+        "o/8BUAFQMgAAAAAAAAAAAAAAAG4=",
+        "MwUEzyEIAAAAAAAAAAAAAAAAANQ="
+      ]
+    },
+    "1041": {
+      "name": "Fr\u00fchlingswind",
+      "cmd": [
+        "owABBVgCJwAKAAIAWgEKA///AIA=",
+        "owH/3ADt+QABZAEKA///AP+zALQ=",
+        "owLb9AABMgAoASj6ABkACgABAVU=",
+        "owNkAQoD//8A8O8A9KQAATIAKJg=",
+        "o/8BKPQBAAAAAAAAAAAAAAAAAIA=",
+        "MwUEziEEAAAAAAAAAAAAAAAAANk="
+      ]
+    },
+    "1042": {
+      "name": "Strom",
+      "cmd": [
+        "owABBFgCGwAKAQIBZAFkAgAAzCA=",
+        "owEA6v8AAQEBAAAUAQEBMjIAFrU=",
+        "owIAMgEBAWQBZAIAAMwA6v8AAUk=",
+        "o/8BKAEByAAAAAAAAAAAAAAAAL0=",
+        "MwUEzSEHAAAAAAAAAAAAAAAAANk="
+      ]
+    },
+    "1043": {
+      "name": "Gl\u00fchw\u00fcrmchen",
+      "cmd": [
+        "owABBVgCIQABAQIBKAIyAf///zk=",
+        "owEBSwEyAwCHACmUXACAhwEPAbY=",
+        "owIyAB4yACEAFAECASgCMgH//5E=",
+        "owP/AUsBSwMAhwApk1wAgIcBRn0=",
+        "o/8BGQBGFAAAAAAAAAAAAAAAABY=",
+        "MwUEzCEAAAAAAAAAAAAAAAAAAN8="
+      ]
+    },
+    "1044": {
+      "name": "Baumschatten",
+      "cmd": [
+        "owABA1gBIQABAQIAUAJkAf///xM=",
+        "owEBSwFGAwCHACmUXACAhwAyAf4=",
+        "o/8BAR4yAAAAAAAAAAAAAAAAAHA=",
+        "MwUEyyELAAAAAAAAAAAAAAAAANM="
+      ]
+    },
+    "1045": {
+      "name": "Sonnenuntergang",
+      "cmd": [
+        "owABAlgBGQABAQEBZAEPA/9/AAk=",
+        "o///AABFAG8AZAEeAR5YAgAAALc=",
+        "MwUEyiEAAAAAAAAAAAAAAAAAANk="
+      ]
+    },
+    "1046": {
+      "name": "Sonnenaufgang",
+      "cmd": [
+        "owABBFgCEwABAAEBKAEoAQAAjmA=",
+        "owEAZAEeAR5kABkADQABAWQBMuE=",
+        "owIDAACO/3MA/wAAAGQBAQEBIBs=",
+        "o/8DAAAAAAAAAAAAAAAAAAAAAF8=",
+        "MwUEySEAAAAAAAAAAAAAAAAAANo="
+      ]
+    },
+    "1047": {
+      "name": "Regenbogenfarben",
+      "cmd": [
+        "owABAlgBGwABAAIBUAEBAf/+/08=",
+        "o/8BPAIoAf///wABAQEBAQAAALQ=",
+        "MwUEyCEPAAAAAAAAAAAAAAAAANQ="
+      ]
+    },
+    "1048": {
+      "name": "Wald",
+      "cmd": [
+        "owABBFgCFgAKAAEBUAQ8AgD/AHU=",
+        "owEApAABMgAoAShkACEACgACAHk=",
+        "owIBAQEAAWQBPAQA34qz/8T/2wU=",
+        "o/+6////ATIAKAEo6AMAAAAAAMA=",
+        "MwUExyEFAAAAAAAAAAAAAAAAANE="
+      ]
+    },
+    "1049": {
+      "name": "Morgen",
+      "cmd": [
+        "owABAlgBHAAPAAEBWgEoBAAAjhM=",
+        "o/8AvZy2//////8AZAEBAQEgA3M=",
+        "MwUExiEAAAAAAAAAAAAAAAAAANU="
+      ]
+    },
+    "1050": {
+      "name": "Wei\u00dfes Licht",
+      "cmd": [
+        "MwUEYwAAAAAAAAAAAAAAAAAAAFE="
+      ]
+    },
+    "1051": {
+      "name": "Mehrfarbiges Polarlicht",
+      "cmd": [
+        "owABA1gBIQABAQIBZAEoAv/k/3E=",
+        "owH///8BZAE3Av/////k/wEeAQk=",
+        "o/8yATIyAAAAAAAAAAAAAAAAAG8=",
+        "MwUExSEAAAAAAAAAAAAAAAAAANY="
+      ]
+    },
+    "1052": {
+      "name": "Blauviolettes Polarlicht",
+      "cmd": [
+        "owABA1gBIQABAQIBUQEoA2AAL+4=",
+        "owH/PP9JAC8BZAI3Af88/wENAZg=",
+        "o/8yAR4yAAAAAAAAAAAAAAAAAEM=",
+        "MwUExCEAAAAAAAAAAAAAAAAAANc="
+      ]
+    },
+    "1053": {
+      "name": "Scharlachrotes Polarlicht",
+      "cmd": [
+        "owABAlgBGwABAQIBZAEoAf8AAFI=",
+        "o/8BZAI3Af8AAAEeADIBHjIAAPI=",
+        "MwUEwyEAAAAAAAAAAAAAAAAAANA="
+      ]
+    },
+    "1054": {
+      "name": "Himmelblaues Polarlicht",
+      "cmd": [
+        "owABAlgBGwABAQIBZAEoAQAA/1I=",
+        "o/8BZAI3AQAA/wENATIBHjIAAOA=",
+        "MwUEwiEAAAAAAAAAAAAAAAAAANE="
+      ]
+    },
+    "1055": {
+      "name": "Smaragdgr\u00fcnes Polarlicht",
+      "cmd": [
+        "owABAlgBGwABAQIBZAIoAQD/AFE=",
+        "o/8BZAE3AQD/AAEeATIBMjIAANw=",
+        "MwUEwSEAAAAAAAAAAAAAAAAAANI="
+      ]
+    }
+  }
+}
