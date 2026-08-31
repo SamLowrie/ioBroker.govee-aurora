@@ -3,11 +3,25 @@
 This experimental adapter controls one Govee H6093 Star Light Projector
 directly over the local network. It uses no cloud service, multicast, or
 discovery. Each adapter instance targets exactly one configured IPv4 address.
+The plugin will **only** work for the H6093 Aurora Star Light Projector,
+all other Hardware will most certainly fail.
 
 The H6093 scene protocol is undocumented and was reverse engineered from
 Govee Home Tap-to-Run payloads. UDP commands do not normally receive an
 acknowledgement, so a successful send only confirms that the local operating
 system accepted the datagram.
+
+This project is mainly AI written. I (SmaLowrie) decoded the protocol with
+the help and tools from AI. The ioBroker plugin itself is 100% written by
+Codex Terra.
+
+Motivation for the plugin has benn that the govee-local plugin lacks any features
+and the govee-smart plugin does not seem to work together with the aurora-projector
+and lacks features.
+
+This plugin is by no way a complete implementation of the protocol or all features.
+As as is, I hope someone will be happy to finally controll their aurora projector. 
+Let me now!
 
 ## Configuration
 
@@ -109,6 +123,18 @@ npm test
 
 The protocol test includes a byte-for-byte comparison with the previously
 captured `te1` DIY scene.
+
+## Protocol documentation
+
+The reverse-engineered local UDP protocol, including confirmed scene fields,
+frame layout, checksums, and known limitations, is documented in
+[docs/PROTOCOL.md](docs/PROTOCOL.md).
+
+## Optional scripts
+
+The adapter does not load or run the contents of [`scripts/`](scripts/).
+It contains separately documented tools for protocol analysis and optional
+JavaScript-adapter automations that users install manually.
 
 ## Current limitations
 
