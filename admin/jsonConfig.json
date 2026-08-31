@@ -1,0 +1,25 @@
+{
+  "type": "panel",
+  "items": {
+    "intro": {
+      "type": "staticText",
+      "text": "This adapter controls exactly one Govee H6093 by direct UDP. It performs no discovery and uses no cloud service.",
+      "newLine": true
+    },
+    "ip": {
+      "type": "text",
+      "label": "Projector IPv4 address",
+      "help": "Use a fixed address or a DHCP reservation for the H6093.",
+      "validate": "data.ip && /^(?:\\d{1,3}\\.){3}\\d{1,3}$/.test(data.ip)",
+      "newLine": true
+    },
+    "port": {
+      "type": "number",
+      "label": "UDP control port",
+      "help": "The Govee LAN control port is normally 4003.",
+      "min": 1,
+      "max": 65535,
+      "newLine": true
+    }
+  }
+}

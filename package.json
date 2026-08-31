@@ -1,0 +1,35 @@
+{
+  "name": "iobroker.govee-aurora",
+  "version": "0.2.0",
+  "description": "Control one Govee Aurora H6093 projector directly over the local network",
+  "author": "Magnus",
+  "license": "MIT",
+  "keywords": [
+    "iobroker",
+    "govee",
+    "H6093",
+    "projector",
+    "local",
+    "UDP"
+  ],
+  "main": "main.js",
+  "files": [
+    "admin/",
+    "data/",
+    "lib/",
+    "main.js",
+    "io-package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@iobroker/adapter-core": "^3.3.2"
+  },
+  "scripts": {
+    "check": "node --check main.js && node --check lib/protocol.js",
+    "test": "node --test test/*.test.js"
+  }
+}
