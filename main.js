@@ -12,6 +12,7 @@ const {
 } = require('./lib/protocol');
 const { MUSIC_BY_ID, MUSIC_BY_SELECTION } = require('./lib/music');
 const PREDEFINED_SCENES = require('./data/H6093-predefined_scenes.json').H6093;
+const PROJECTOR_PORT = 4003;
 
 const DEFAULTS = Object.freeze({
     'scene.stars.enabled': true,
@@ -80,7 +81,6 @@ class GoveeAurora extends utils.Adapter {
         super({ ...options, name: 'govee-aurora' });
         this.socket = undefined;
         this.projectorIp = '';
-        this.projectorPort = 4003;
         this.values = { ...DEFAULTS };
         this.on('ready', this.onReady.bind(this));
         this.on('stateChange', this.onStateChange.bind(this));
@@ -89,6 +89,7 @@ class GoveeAurora extends utils.Adapter {
 
     async onReady() {
         await this.setStateAsync('info.connection', { val: false, ack: true });
+        await this.removeLegacyPortConfig();
 
         await this.setObjectNotExistsAsync('global.predefinedScene', {
             type: 'state',
@@ -116,7 +117,6 @@ class GoveeAurora extends utils.Adapter {
         });
 
         this.projectorIp = String(this.config.ip || '').trim();
-        this.projectorPort = Number(this.config.port || 4003);
         await this.setStateAsync('projector.ip', { val: this.projectorIp, ack: true });
         await this.extendObjectAsync('global.predefinedScene', {
             common: {
@@ -134,11 +134,6 @@ class GoveeAurora extends utils.Adapter {
             });
             return;
         }
-        if (!Number.isInteger(this.projectorPort) || this.projectorPort < 1 || this.projectorPort > 65535) {
-            this.log.error('The configured UDP port must be an integer from 1 to 65535.');
-            return;
-        }
-
         await this.loadStateValues();
         this.socket = dgram.createSocket('udp4');
         this.socket.on('error', error => {
@@ -151,7 +146,20 @@ class GoveeAurora extends utils.Adapter {
         });
         await this.setStateAsync('info.connection', { val: true, ack: true });
         this.subscribeStates('*');
-        this.log.info(`Ready to control H6093 at ${this.projectorIp}:${this.projectorPort}`);
+        this.log.info(`Ready to control H6093 at ${this.projectorIp}:${PROJECTOR_PORT}`);
+    }
+
+    async removeLegacyPortConfig() {
+        const instanceId = `system.adapter.${this.namespace}`;
+        try {
+            const instance = await this.getForeignObjectAsync(instanceId);
+            if (!instance?.native || !Object.hasOwn(instance.native, 'port')) return;
+            delete instance.native.port;
+            await this.setForeignObjectAsync(instanceId, instance);
+            this.log.info('Removed obsolete configurable UDP port; H6093 commands always target port 4003.');
+        } catch (error) {
+            this.log.warn(`Could not remove obsolete UDP port configuration: ${error.message}`);
+        }
     }
 
     async loadStateValues() {
@@ -349,12 +357,12 @@ class GoveeAurora extends utils.Adapter {
         if (!this.socket) throw new Error('UDP socket is not ready');
         const payload = Buffer.from(JSON.stringify(message), 'utf8');
         await new Promise((resolve, reject) => {
-            this.socket.send(payload, this.projectorPort, this.projectorIp, error => {
+            this.socket.send(payload, PROJECTOR_PORT, this.projectorIp, error => {
                 if (error) reject(error);
                 else resolve();
             });
         });
-        const result = `${description} sent to ${this.projectorIp}:${this.projectorPort}; no acknowledgement expected`;
+        const result = `${description} sent to ${this.projectorIp}:${PROJECTOR_PORT}; no acknowledgement expected`;
         this.log.debug(result);
         await this.setStateAsync('commands.lastResult', { val: result, ack: true });
         await this.setStateAsync('commands.lastError', { val: '', ack: true });

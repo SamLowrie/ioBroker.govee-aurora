@@ -25,8 +25,9 @@ Let me now!
 
 ## Configuration
 
-Configure the projector's fixed IPv4 address. The default UDP control port is
-`4003`. A DHCP reservation is recommended so that the address does not change.
+Configure the projector's fixed IPv4 address. A DHCP reservation is recommended
+so that the address does not change. The adapter always sends to the H6093's
+fixed UDP control port `4003`; it does not listen on that port.
 
 ## Objects
 
