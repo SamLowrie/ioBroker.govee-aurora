@@ -1,6 +1,6 @@
 {
   "name": "iobroker.govee-aurora",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Control one Govee Aurora H6093 projector directly over the local network",
   "author": "Magnus",
   "license": "MIT",

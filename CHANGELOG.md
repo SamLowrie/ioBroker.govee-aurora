@@ -2,6 +2,9 @@
 
 All notable changes to this project are documented in this file.
 
+## 0.3.0
+- Inital release
+
 ## 0.2.0
 
 - Added byte-exact replay of 55 extracted Govee Home predefined scenes.
