@@ -150,3 +150,5 @@ JavaScript-adapter automations that users install manually.
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md).
+
+[Older changelogs can be found there](CHANGELOG_OLD.md)
