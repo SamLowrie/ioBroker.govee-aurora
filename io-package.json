@@ -2,7 +2,6 @@
   "common": {
     "name": "govee-aurora",
     "version": "0.3.1",
-    "title": "Govee Aurora",
     "titleLang": {
       "en": "Govee Aurora"
     },
