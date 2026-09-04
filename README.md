@@ -149,4 +149,7 @@ JavaScript-adapter automations that users install manually.
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 See [CHANGELOG.md](CHANGELOG.md).
