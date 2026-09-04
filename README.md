@@ -149,4 +149,8 @@ JavaScript-adapter automations that users install manually.
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires admin >= 7.8.23 now.
+
+
 See [CHANGELOG.md](CHANGELOG.md).
