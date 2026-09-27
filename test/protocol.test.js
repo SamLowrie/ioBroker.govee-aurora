@@ -13,6 +13,7 @@ const {
 } = require('../lib/protocol');
 const { MUSIC_BY_ID, MUSIC_BY_SELECTION, MUSIC_TRACKS } = require('../lib/music');
 const PREDEFINED_SCENES = require('../data/H6093-predefined_scenes.json').H6093;
+const IO_PACKAGE = require('../io-package.json');
 
 const TE1 = {
     aurora: {
@@ -98,6 +99,18 @@ test('keeps the music tracks in Govee Home app order', () => {
     ]);
     assert.equal(MUSIC_BY_ID.get(16).label, 'Festival - Music Box');
     assert.equal(MUSIC_BY_SELECTION.get('track-17').id, 2);
+});
+
+test('keeps the numeric music ID state in ascending order without changing the app-ordered dropdown', () => {
+    const objects = IO_PACKAGE.instanceObjects;
+    const musicId = objects.find(object => object._id === 'scene.music.id');
+    const musicSelection = objects.find(object => object._id === 'scene.music.selection');
+
+    assert.deepEqual(Object.keys(musicId.common.states), [
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+        '10', '11', '12', '13', '14', '15', '16', '17', '18',
+    ]);
+    assert.deepEqual(Object.values(musicSelection.common.states), MUSIC_TRACKS.map(track => track.label));
 });
 
 test('validates color arrays strictly', () => {

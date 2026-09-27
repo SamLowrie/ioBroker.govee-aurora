@@ -483,26 +483,26 @@
         "def": 0,
         "states": {
           "0": "Off",
+          "1": "Universe - Deep Sea",
+          "2": "Universe - Starry Night",
           "3": "Soothing Music - Lullaby",
-          "16": "Festival - Music Box",
-          "14": "Emotion - Still",
-          "15": "Emotion - Cheerful Music",
-          "10": "Rain - Mountain Raindrops",
+          "4": "Nature - Wind Chimes",
+          "5": "Nature - Insect Songs",
           "6": "Rain - Drizzle",
-          "18": "Life - Little Train",
-          "17": "Life - Tick Tock",
           "7": "Nature - River",
           "8": "Nature - Beach Waves",
           "9": "Nature - Campfire",
-          "5": "Nature - Insect Songs",
-          "13": "Nature - Wind Sounds",
+          "10": "Rain - Mountain Raindrops",
           "11": "Nature - Birdsong",
-          "4": "Nature - Wind Chimes",
           "12": "Nature - Breeze 2",
-          "2": "Universe - Starry Night",
-          "1": "Universe - Deep Sea"
+          "13": "Nature - Wind Sounds",
+          "14": "Emotion - Still",
+          "15": "Emotion - Cheerful Music",
+          "16": "Festival - Music Box",
+          "18": "Life - Little Train",
+          "17": "Life - Tick Tock"
         },
-        "desc": "Numeric device sound ID. This does not control app music playback. Use scene.music.selection for the app-ordered dropdown."
+        "desc": "Canonical numeric device sound ID. This does not control app music playback. Use scene.music.selection for the app-ordered dropdown."
       },
       "native": {}
     },
