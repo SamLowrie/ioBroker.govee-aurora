@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "govee-aurora",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "titleLang": {
       "en": "Govee Aurora"
     },
@@ -145,7 +145,7 @@
         "read": true,
         "write": true,
         "def": "1001",
-        "desc": "Selects an extracted Govee Home scene for commands.pushPredefinedScene. Changing the selection does not send it."
+        "desc": "Selects and immediately activates an extracted Govee Home scene."
       },
       "native": {}
     },
@@ -552,19 +552,6 @@
       "type": "state",
       "common": {
         "name": "Push scene",
-        "type": "boolean",
-        "role": "button",
-        "read": true,
-        "write": true,
-        "def": false
-      },
-      "native": {}
-    },
-    {
-      "_id": "commands.pushPredefinedScene",
-      "type": "state",
-      "common": {
-        "name": "Push predefined scene",
         "type": "boolean",
         "role": "button",
         "read": true,

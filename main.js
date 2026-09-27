@@ -40,7 +40,6 @@ const DEFAULTS = Object.freeze({
     'global.autoPush': false,
     'global.predefinedScene': '1001',
     'commands.pushScene': false,
-    'commands.pushPredefinedScene': false,
     'commands.lastResult': '',
     'commands.lastError': '',
     'commands.lastSent': 0,
@@ -90,6 +89,9 @@ class GoveeAurora extends utils.Adapter {
     async onReady() {
         await this.setStateAsync('info.connection', { val: false, ack: true });
         await this.removeLegacyPortConfig();
+        // Replaced by direct activation through global.predefinedScene in 0.3.2.
+        await this.delStateAsync('commands.pushPredefinedScene');
+        await this.delObjectAsync('commands.pushPredefinedScene');
 
         await this.setObjectNotExistsAsync('global.predefinedScene', {
             type: 'state',
@@ -103,23 +105,18 @@ class GoveeAurora extends utils.Adapter {
             },
             native: {},
         });
-        await this.setObjectNotExistsAsync('commands.pushPredefinedScene', {
-            type: 'state',
-            common: {
-                name: 'Push predefined scene',
-                type: 'boolean',
-                role: 'button',
-                read: true,
-                write: true,
-                def: false,
-            },
-            native: {},
-        });
 
         this.projectorIp = String(this.config.ip || '').trim();
         await this.setStateAsync('projector.ip', { val: this.projectorIp, ack: true });
         await this.extendObjectAsync('global.predefinedScene', {
             common: {
+                name: 'Predefined scene',
+                type: 'string',
+                role: 'text',
+                read: true,
+                write: true,
+                def: '1001',
+                desc: 'Select and immediately activate an extracted Govee Home scene.',
                 states: Object.fromEntries(
                     Object.entries(PREDEFINED_SCENES).map(([id, scene]) => [id, scene.name]),
                 ),
@@ -253,17 +250,7 @@ class GoveeAurora extends utils.Adapter {
 
         try {
             if (id === 'commands.pushScene') {
-                if (this.normalizeValue('global.autoPush', state.val)) {
-                    await this.pushScene('manual trigger');
-                }
-                await this.setStateAsync(id, { val: false, ack: true });
-                return;
-            }
-
-            if (id === 'commands.pushPredefinedScene') {
-                if (this.normalizeValue('global.autoPush', state.val)) {
-                    await this.pushPredefinedScene();
-                }
+                await this.pushScene('manual trigger');
                 await this.setStateAsync(id, { val: false, ack: true });
                 return;
             }
@@ -283,7 +270,9 @@ class GoveeAurora extends utils.Adapter {
                 await this.setStateAsync('scene.music.id', { val: musicId, ack: true });
             }
 
-            if (id === 'global.power') {
+            if (id === 'global.predefinedScene') {
+                await this.pushPredefinedScene();
+            } else if (id === 'global.power') {
                 await this.sendMessage(buildPowerMessage(value), 'power command');
             } else if (id === 'global.brightness') {
                 await this.sendMessage(buildBrightnessMessage(value), 'brightness command');
@@ -297,7 +286,7 @@ class GoveeAurora extends utils.Adapter {
             if (Object.hasOwn(this.values, id)) {
                 await this.setStateAsync(id, { val: this.values[id], ack: true });
             }
-            if (id === 'commands.pushScene' || id === 'commands.pushPredefinedScene') {
+            if (id === 'commands.pushScene') {
                 await this.setStateAsync(id, { val: false, ack: true });
             }
         }

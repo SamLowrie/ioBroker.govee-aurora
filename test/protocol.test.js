@@ -113,6 +113,14 @@ test('keeps the numeric music ID state in ascending order without changing the a
     assert.deepEqual(Object.values(musicSelection.common.states), MUSIC_TRACKS.map(track => track.label));
 });
 
+test('uses direct predefined-scene selection instead of a redundant push button', () => {
+    const objects = IO_PACKAGE.instanceObjects;
+    const predefinedScene = objects.find(object => object._id === 'global.predefinedScene');
+
+    assert.match(predefinedScene.common.desc, /immediately activates/i);
+    assert.equal(objects.some(object => object._id === 'commands.pushPredefinedScene'), false);
+});
+
 test('validates color arrays strictly', () => {
     assert.deepEqual(validateColors('colors', [[0, 1, 255]]), [[0, 1, 255]]);
     assert.throws(() => validateColors('colors', []), /between 1 and 8/);

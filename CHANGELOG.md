@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## 0.3.2
+
+- Selecting `global.predefinedScene` now immediately activates that scene.
+- Removed the redundant `commands.pushPredefinedScene` trigger.
+- Manual `commands.pushScene` now sends independently of `global.autoPush`.
+
 ## 0.3.1
 
 - Removed the misleading configurable port; H6093 commands always target UDP port 4003.
