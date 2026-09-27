@@ -35,12 +35,11 @@ fixed UDP control port `4003`; it does not listen on that port.
 - `global.brightness` sends a standard Govee LAN brightness command.
 - `global.autoPush` pushes the complete scene after every valid `scene.*`
   change. It is disabled by default.
-- `global.predefinedScene` selects one of the 55 extracted Govee Home scenes.
-  Changing the selection does not send anything.
+- `global.predefinedScene` immediately sends one of the 55 extracted Govee
+  Home scenes when its selection changes. It does not depend on `autoPush`.
 - `commands.pushScene` is a trigger. Set it to `true` to build and send the
-  complete scene. It returns to `false` automatically.
-- `commands.pushPredefinedScene` sends the complete captured payload selected
-  by `global.predefinedScene` and then returns to `false`.
+  complete editable scene. It returns to `false` automatically and does not
+  depend on `autoPush`.
 - `scene.*` contains editable scene parameters only. Editing these values does
   not change global power or brightness.
 - `scene.music.id` is written to byte `0x05` of the scene activation frame.
