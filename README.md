@@ -42,13 +42,10 @@ fixed UDP control port `4003`; it does not listen on that port.
   depend on `autoPush`.
 - `scene.*` contains editable scene parameters only. Editing these values does
   not change global power or brightness.
-- `scene.music.id` is written to byte `0x05` of the scene activation frame.
-  `0` is sound off in the pushed scene; non-zero values are device-specific
-  built-in sound IDs. It does not start or stop app music playback.
-- `scene.music.selection` is synchronized with `scene.music.id` and provides
-  the music list in the same thematic order as the Govee Home app. The extra
-  state is necessary because JavaScript sorts purely numeric object keys and
-  therefore cannot preserve the app order in the numeric ID dropdown.
+- `scene.music.selection` is the only user-facing music state and uses the
+  same thematic order as the Govee Home app. Its protocol ID is derived
+  internally and written to byte `0x05` of the scene activation frame. It does
+  not independently start or stop app music playback.
 - `commands.lastResult`, `commands.lastError`, and `commands.lastSent` provide
   local send diagnostics.
 

@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## 0.3.3
+
+- Removed the redundant user-facing `scene.music.id` state.
+- `scene.music.selection` is now the only music control and retains Govee
+  Home's thematic order; the device ID is derived internally.
+
 ## 0.3.2
 
 - Selecting `global.predefinedScene` now immediately activates that scene.

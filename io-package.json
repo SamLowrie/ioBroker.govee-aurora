@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "govee-aurora",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "titleLang": {
       "en": "Govee Aurora"
     },
@@ -472,41 +472,6 @@
       "native": {}
     },
     {
-      "_id": "scene.music.id",
-      "type": "state",
-      "common": {
-        "name": "Built-in music ID",
-        "type": "number",
-        "role": "level",
-        "read": true,
-        "write": true,
-        "def": 0,
-        "states": {
-          "0": "Off",
-          "1": "Universe - Deep Sea",
-          "2": "Universe - Starry Night",
-          "3": "Soothing Music - Lullaby",
-          "4": "Nature - Wind Chimes",
-          "5": "Nature - Insect Songs",
-          "6": "Rain - Drizzle",
-          "7": "Nature - River",
-          "8": "Nature - Beach Waves",
-          "9": "Nature - Campfire",
-          "10": "Rain - Mountain Raindrops",
-          "11": "Nature - Birdsong",
-          "12": "Nature - Breeze 2",
-          "13": "Nature - Wind Sounds",
-          "14": "Emotion - Still",
-          "15": "Emotion - Cheerful Music",
-          "16": "Festival - Music Box",
-          "18": "Life - Little Train",
-          "17": "Life - Tick Tock"
-        },
-        "desc": "Canonical numeric device sound ID. This does not control app music playback. Use scene.music.selection for the app-ordered dropdown."
-      },
-      "native": {}
-    },
-    {
       "_id": "scene.music.selection",
       "type": "state",
       "common": {
@@ -537,7 +502,7 @@
           "track-17": "Universe - Starry Night",
           "track-18": "Universe - Deep Sea"
         },
-        "desc": "Ordered dropdown matching the Govee Home app. It is synchronized with scene.music.id."
+        "desc": "Ordered dropdown matching the Govee Home app. The protocol music ID is derived internally from this selection."
       },
       "native": {}
     },

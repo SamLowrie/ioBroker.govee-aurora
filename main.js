@@ -10,7 +10,7 @@ const {
     buildSceneMessage,
     validateColors,
 } = require('./lib/protocol');
-const { MUSIC_BY_ID, MUSIC_BY_SELECTION } = require('./lib/music');
+const { MUSIC_BY_SELECTION } = require('./lib/music');
 const PREDEFINED_SCENES = require('./data/H6093-predefined_scenes.json').H6093;
 const PROJECTOR_PORT = 4003;
 
@@ -33,7 +33,6 @@ const DEFAULTS = Object.freeze({
     'scene.aurora.lightFlow.colors': '[[255,255,255]]',
     'scene.aurora.lightFlow.mode': 1,
     'scene.aurora.lightFlow.speed': 50,
-    'scene.music.id': 0,
     'scene.music.selection': 'track-00',
     'global.power': false,
     'global.brightness': 100,
@@ -80,6 +79,7 @@ class GoveeAurora extends utils.Adapter {
         super({ ...options, name: 'govee-aurora' });
         this.socket = undefined;
         this.projectorIp = '';
+        this.musicId = 0;
         this.values = { ...DEFAULTS };
         this.on('ready', this.onReady.bind(this));
         this.on('stateChange', this.onStateChange.bind(this));
@@ -92,6 +92,10 @@ class GoveeAurora extends utils.Adapter {
         // Replaced by direct activation through global.predefinedScene in 0.3.2.
         await this.delStateAsync('commands.pushPredefinedScene');
         await this.delObjectAsync('commands.pushPredefinedScene');
+        // Music selection is now the only user-facing state. The protocol ID
+        // is derived internally from its app-ordered selection key.
+        await this.delStateAsync('scene.music.id');
+        await this.delObjectAsync('scene.music.id');
 
         await this.setObjectNotExistsAsync('global.predefinedScene', {
             type: 'state',
@@ -180,12 +184,7 @@ class GoveeAurora extends utils.Adapter {
             }
         }
 
-        // The numeric ID is the canonical value. This preserves an existing
-        // ID during an adapter upgrade where the ordered selection state is
-        // being created for the first time.
-        const musicSelection = MUSIC_BY_ID.get(this.values['scene.music.id']).selection;
-        this.values['scene.music.selection'] = musicSelection;
-        await this.setStateAsync('scene.music.selection', { val: musicSelection, ack: true });
+        this.musicId = MUSIC_BY_SELECTION.get(this.values['scene.music.selection']).id;
     }
 
     normalizeValue(id, rawValue) {
@@ -200,14 +199,6 @@ class GoveeAurora extends utils.Adapter {
             const [minimum, maximum] = NUMBER_RANGES[id];
             if (!Number.isInteger(value) || value < minimum || value > maximum) {
                 throw new Error(`value must be an integer from ${minimum} to ${maximum}`);
-            }
-            return value;
-        }
-
-        if (id === 'scene.music.id') {
-            const value = Number(rawValue);
-            if (!Number.isInteger(value) || !MUSIC_BY_ID.has(value)) {
-                throw new Error(`unknown built-in music ID: ${rawValue}`);
             }
             return value;
         }
@@ -260,14 +251,8 @@ class GoveeAurora extends utils.Adapter {
             this.values[id] = value;
             await this.setStateAsync(id, { val: value, ack: true });
 
-            if (id === 'scene.music.id') {
-                const selection = MUSIC_BY_ID.get(value).selection;
-                this.values['scene.music.selection'] = selection;
-                await this.setStateAsync('scene.music.selection', { val: selection, ack: true });
-            } else if (id === 'scene.music.selection') {
-                const musicId = MUSIC_BY_SELECTION.get(value).id;
-                this.values['scene.music.id'] = musicId;
-                await this.setStateAsync('scene.music.id', { val: musicId, ack: true });
+            if (id === 'scene.music.selection') {
+                this.musicId = MUSIC_BY_SELECTION.get(value).id;
             }
 
             if (id === 'global.predefinedScene') {
@@ -323,7 +308,7 @@ class GoveeAurora extends utils.Adapter {
                 },
             },
             music: {
-                id: this.values['scene.music.id'],
+                id: this.musicId,
             },
         };
     }
