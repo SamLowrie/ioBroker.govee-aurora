@@ -38,6 +38,7 @@ const DEFAULTS = Object.freeze({
     'global.brightness': 100,
     'global.autoPush': false,
     'global.predefinedScene': '1001',
+    'global.predefinedScene_music': true,
     'commands.pushScene': false,
     'commands.lastResult': '',
     'commands.lastError': '',
@@ -52,6 +53,7 @@ const BOOLEAN_STATES = new Set([
     'scene.aurora.lightFlow.enabled',
     'global.power',
     'global.autoPush',
+    'global.predefinedScene_music',
 ]);
 
 const NUMBER_RANGES = Object.freeze({
@@ -255,7 +257,7 @@ class GoveeAurora extends utils.Adapter {
                 this.musicId = MUSIC_BY_SELECTION.get(value).id;
             }
 
-            if (id === 'global.predefinedScene') {
+            if (id === 'global.predefinedScene' || id === 'global.predefinedScene_music') {
                 await this.pushPredefinedScene();
             } else if (id === 'global.power') {
                 await this.sendMessage(buildPowerMessage(value), 'power command');
@@ -322,8 +324,8 @@ class GoveeAurora extends utils.Adapter {
         const scene = PREDEFINED_SCENES[id];
         if (!scene) throw new Error(`unknown predefined scene ID: ${id}`);
         await this.sendMessage(
-            buildPredefinedSceneMessage(scene.cmd),
-            `predefined scene ${id} (${scene.name})`,
+            buildPredefinedSceneMessage(scene.cmd, this.values['global.predefinedScene_music']),
+            `predefined scene ${id} (${scene.name}; music ${this.values['global.predefinedScene_music'] ? 'on' : 'off'})`,
         );
     }
 

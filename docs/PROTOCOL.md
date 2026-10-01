@@ -174,7 +174,10 @@ Predefined Govee Home scenes can contain additional or differently structured
 data that has not been completely decoded. They are kept in
 `data/H6093-predefined_scenes.json` and replayed unchanged. The adapter only
 validates that each Base64 entry decodes to exactly 20 bytes and has a valid
-XOR checksum.
+XOR checksum. When `global.predefinedScene_music` is disabled, the adapter
+changes only the confirmed music-ID byte `0x05` of each `33 05` activation
+frame to `0` and recalculates that frame's XOR checksum. A predefined scene
+whose music ID is already `0` remains byte-for-byte unchanged.
 
 Do not rebuild predefined scenes from the DIY field model: this could omit
 unknown effect data. Conversely, a captured predefined scene may not map

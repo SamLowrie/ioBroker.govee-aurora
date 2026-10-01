@@ -112,8 +112,10 @@ test('exposes only the app-ordered music dropdown', () => {
 test('uses direct predefined-scene selection instead of a redundant push button', () => {
     const objects = IO_PACKAGE.instanceObjects;
     const predefinedScene = objects.find(object => object._id === 'global.predefinedScene');
+    const predefinedSceneMusic = objects.find(object => object._id === 'global.predefinedScene_music');
 
     assert.match(predefinedScene.common.desc, /immediately activates/i);
+    assert.equal(predefinedSceneMusic.common.def, true);
     assert.equal(objects.some(object => object._id === 'commands.pushPredefinedScene'), false);
 });
 
@@ -138,6 +140,38 @@ test('validates and preserves every predefined scene payload', () => {
         assert.equal(message.msg.cmd, 'ptReal');
         assert.deepEqual(message.msg.data.command, scene.cmd);
     }
+});
+
+test('can suppress only the captured music ID of a predefined scene', () => {
+    const scene = Object.values(PREDEFINED_SCENES).find(candidate => candidate.cmd.some(encoded => {
+        const frame = Buffer.from(encoded, 'base64');
+        return frame[0] === 0x33 && frame[1] === 0x05 && frame[5] !== 0;
+    }));
+    assert.ok(scene, 'expected a captured predefined scene with built-in music');
+
+    const muted = buildPredefinedSceneMessage(scene.cmd, false).msg.data.command;
+    for (const [index, encoded] of scene.cmd.entries()) {
+        const original = Buffer.from(encoded, 'base64');
+        const changed = Buffer.from(muted[index], 'base64');
+        if (original[0] === 0x33 && original[1] === 0x05 && original[5] !== 0) {
+            assert.equal(changed[5], 0);
+            assert.equal(changed[19], xorChecksum(changed));
+            const expected = Buffer.from(original);
+            expected[5] = 0;
+            expected[19] = xorChecksum(expected);
+            assert.deepEqual(changed, expected);
+        } else {
+            assert.deepEqual(changed, original);
+        }
+    }
+    assert.throws(() => buildPredefinedSceneMessage(scene.cmd, 'false'), /must be a boolean/);
+
+    const silentScene = Object.values(PREDEFINED_SCENES).find(candidate => candidate.cmd.some(encoded => {
+        const frame = Buffer.from(encoded, 'base64');
+        return frame[0] === 0x33 && frame[1] === 0x05 && frame[5] === 0;
+    }));
+    assert.ok(silentScene, 'expected a captured predefined scene without built-in music');
+    assert.deepEqual(buildPredefinedSceneMessage(silentScene.cmd, false).msg.data.command, silentScene.cmd);
 });
 
 test('rejects a damaged predefined scene frame', () => {

@@ -2,6 +2,11 @@
 
 All notable changes to this project are documented in this file.
 
+## 0.3.4
+
+- Added `global.predefinedScene_music` to enable or suppress the captured
+  built-in music of a predefined scene without changing its visual payload.
+
 ## 0.3.3
 
 - Removed the redundant user-facing `scene.music.id` state.

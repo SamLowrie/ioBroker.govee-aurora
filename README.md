@@ -37,6 +37,11 @@ fixed UDP control port `4003`; it does not listen on that port.
   change. It is disabled by default.
 - `global.predefinedScene` immediately sends one of the 55 extracted Govee
   Home scenes when its selection changes. It does not depend on `autoPush`.
+- `global.predefinedScene_music` controls whether a predefined scene uses its
+  captured built-in music. It defaults to `true`. Changing it resends the
+  selected predefined scene; with `false`, the confirmed music-ID byte in its
+  activation frame is changed to `0`. Scenes that already have no music are
+  otherwise sent unchanged.
 - `commands.pushScene` is a trigger. Set it to `true` to build and send the
   complete editable scene. It returns to `false` automatically and does not
   depend on `autoPush`.

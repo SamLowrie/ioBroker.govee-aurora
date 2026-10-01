@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "govee-aurora",
-    "version": "0.3.3",
+    "version": "0.3.4",
     "titleLang": {
       "en": "Govee Aurora"
     },
@@ -146,6 +146,20 @@
         "write": true,
         "def": "1001",
         "desc": "Selects and immediately activates an extracted Govee Home scene."
+      },
+      "native": {}
+    },
+    {
+      "_id": "global.predefinedScene_music",
+      "type": "state",
+      "common": {
+        "name": "Predefined scene music",
+        "type": "boolean",
+        "role": "switch.enable",
+        "read": true,
+        "write": true,
+        "def": true,
+        "desc": "Use the captured built-in music for predefined scenes. Changing this resends the selected predefined scene."
       },
       "native": {}
     },
